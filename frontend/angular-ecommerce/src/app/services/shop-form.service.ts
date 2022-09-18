@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class ShopFormServiceService {
+export class ShopFormService {
   constructor() {}
 
   getCreditCardMonths(startMonth: number): Observable<number[]> {
