@@ -291,11 +291,25 @@ export class CheckoutComponent implements OnInit {
         );
 
         // reset cart
+        this.resetCart();
       },
       error: (error) => {
         alert(`There was an error: ${error.message}`);
       },
     });
+  }
+
+  resetCart() {
+    // reset cart data
+    this.cartService.cartItems = [];
+    this.cartService.totalPrice.next(0);
+    this.cartService.totalQuantity.next(0);
+
+    // reset the form
+    this.checkoutFormGroup.reset();
+
+    // navigate back to the products page
+    this.router.navigateByUrl('/products');
   }
 
   copyShippingAddressToBillingAddress(event) {
